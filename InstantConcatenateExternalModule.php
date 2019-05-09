@@ -37,18 +37,22 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 								var src = " . json_encode($srcFields) . ";
 								var space = '" . $space . "';
 								var allValuesFilledOut = true;
+								console.log('src.length: ' + src.length);
 								for (var i=0; i < src.length; i++) {
 									if (i > 0) {
 										value = value + space;
 									}
-									value = value + $('[name=\"'+src[i]+'\"]').val();
-									if($('[name=\"'+src[i]+'\"]').val()==="")
+									var fieldValue = $('[name=\"'+src[i]+'\"]').val();
+									console.log('fieldValue: ' + fieldValue);
+									value = value + fieldValue;
+									if(fieldValue === "")
 									{
 										console.log('Some field empty');
                                         allValuesFilledOut = allValuesFilledOut && false;
 									}
 									else
 									{
+										console.log('Some field NOT empty');
 										allValuesFilledOut = allValuesFilledOut && true;
 									}
 								}
@@ -59,7 +63,7 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 								// Trigger a change event for other modules, branching logic, etc.
 								if(allValuesFilledOut == true)
 								{
-									console.log('All fields filled out');
+									console.log('All fields filled out, fire a change event');
 									destination.change();
 								}
 							}";
