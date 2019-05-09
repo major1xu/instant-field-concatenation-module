@@ -36,18 +36,32 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 								var value = '';
 								var src = " . json_encode($srcFields) . ";
 								var space = '" . $space . "';
+								var allValuesFilledOut = true;
 								for (var i=0; i < src.length; i++) {
 									if (i > 0) {
 										value = value + space;
 									}
 									value = value + $('[name=\"'+src[i]+'\"]').val();
+									if($('[name=\"'+src[i]+'\"]').val()==="")
+									{
+										console.log('Some field empty');
+                                        allValuesFilledOut = allValuesFilledOut && false;
+									}
+									else
+									{
+										allValuesFilledOut = allValuesFilledOut && true;
+									}
 								}
 								console.log('Concatenating to '+value);
 								var destination = $('[name=\"" . $destField . "\"]');
 								destination.val(value);
 								
 								// Trigger a change event for other modules, branching logic, etc.
-								destination.change();
+								if(allValuesFilledOut == true)
+								{
+									console.log('All fields filled out');
+									destination.change();
+								}
 							}";
 					foreach ($srcFields as $src) {
 						echo "$('[name=\"" . $src . "\"]').change(function() { concat(); }); ";
