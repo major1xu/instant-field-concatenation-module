@@ -42,19 +42,16 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 									if (i > 0) {
 										value = value + space;
 									}
-									var fieldValue = $('[name=\"'+src[i]+'\"]').val();
-									console.log('fieldValue: ' + fieldValue);
-									value = value + fieldValue;
-									if(fieldValue === "")
+									
+									if( $('[name=\"'+src[i]+'\"]').val() )
 									{
-										console.log('Some field empty');
-                                        allValuesFilledOut = allValuesFilledOut && false;
+										allValuesFilledOut =  allValuesFilledOut && true;
 									}
 									else
 									{
-										console.log('Some field NOT empty');
-										allValuesFilledOut = allValuesFilledOut && true;
+										allValuesFilledOut =  allValuesFilledOut && false;
 									}
+									value = value + $('[name=\"'+src[i]+'\"]').val();	
 								}
 								console.log('Concatenating to '+value);
 								var destination = $('[name=\"" . $destField . "\"]');
