@@ -48,6 +48,13 @@
 					"required": false,
 					"type": "checkbox",
 					"repeatable": false
+				},
+				{
+					"key": "fireEventAfterFillOutAllFields",
+					"name": "Fire event after fill out all fields?",
+					"required": false,
+					"type": "checkbox",
+					"repeatable": false
 				}
 			]
 		}
