@@ -28,7 +28,7 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 					$space = " ";
 				}
 
-				$fireEventAfterFillOutAllFields=$field_data['fireEventAfterFillOutAllFields'];
+				$fireEventAfterFillOutAllFields=$field_data['fire-event-after-filloutallfields'];
 				$fireEventFlag = false;
                 if($fireEventAfterFillOutAllFields) {
 					$fireEventFlag=true;
