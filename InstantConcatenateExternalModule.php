@@ -42,8 +42,8 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 								var value = '';
 								var src = " . json_encode($srcFields) . ";
 								var space = '" . $space . "';
-                                                                var flag = " . json_encode($fireEventFlag) . "; 
-                                                                console.log('flag:' + flag);
+                                var flag = " . json_encode($fireEventFlag) . "; 
+                                console.log('flag:' + flag);
 								var allValuesFilledOut = true;
 								console.log('src.length: ' + src.length);
 								for (var i=0; i < src.length; i++) {
