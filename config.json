@@ -51,7 +51,7 @@
 				},
 				{
 					"key": "fire-event-after-filloutallfields",
-					"name": "Fire Change Event After Fill Out All Fields?",
+					"name": "Concatenate Destination Field Only If All Source Fields Have Values?",
 					"required": false,
 					"type": "checkbox",
 					"repeatable": false
