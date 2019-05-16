@@ -30,8 +30,8 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 
 				$fireEventAfterFillOutAllFields=$field_data['fire-event-after-filloutallfields'];
 				$fireEventFlag = false;
-                if($fireEventAfterFillOutAllFields) {
-					$fireEventFlag=true;
+                                if($fireEventAfterFillOutAllFields) {
+				   $fireEventFlag=true;
 				}
 
 				if ($destField) {
@@ -42,13 +42,15 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 								var value = '';
 								var src = " . json_encode($srcFields) . ";
 								var space = '" . $space . "';
+                                                                var flag = " . json_encode($fireEventFlag) . "; 
+                                                                console.log('flag:' + flag);
 								var allValuesFilledOut = true;
 								console.log('src.length: ' + src.length);
 								for (var i=0; i < src.length; i++) {
 									if (i > 0) {
 										value = value + space;
 									}
-									if($fireEventFlag) {
+									if( flag ) {
 										if( $('[name=\"'+src[i]+'\"]').val() )
 										{
 											allValuesFilledOut =  allValuesFilledOut && true;
@@ -65,7 +67,7 @@ class InstantConcatenateExternalModule extends AbstractExternalModule
 								destination.val(value);
 								
 								// Trigger a change event for other modules, branching logic, etc.
-								if($fireEventFlag) {
+								if(flag) {
 									if(allValuesFilledOut == true)
 									{
 										console.log('All fields filled out, fire a change event');
