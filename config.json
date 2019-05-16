@@ -51,7 +51,7 @@
 				},
 				{
 					"key": "fire-event-after-filloutallfields",
-					"name": "Fire event after fill out all fields?",
+					"name": "Fire Change Event After Fill Out All Fields?",
 					"required": false,
 					"type": "checkbox",
 					"repeatable": false
